@@ -1,16 +1,10 @@
 <?php
-use db;
-
-use Entity\UserEntity;
-$user = new UserEntity();
-
 
 class UserModel {
-   public function insertUser($user) {
+   public function insertUser(UserEntity $user) {
       $db = db::dbConnect();
       $cryptedPassword =  password_hash($user->getPassword(), PASSWORD_DEFAULT);
-      $req = $db->prepare("INSERT INTO users(firstName, lastName, email, password, isAdmin) VALUES(:firstName, :lastName,  :email,  :password, :isAdmin)");
-      
+      $req = $db->prepare("INSERT INTO users(firstName, lastName, email, password, isAdmin) VALUES(:firstName, :lastName,  :email,  :password, :isAdmin)");     
 
       $req->execute(array(
          "firstName" => $user->getFirstName(),
@@ -24,7 +18,7 @@ class UserModel {
       $_SESSION['isAdmin'] = $user->getIsAdmin(); 
    }
  
-   public function verifyEmail($user) { 
+   public function verifyEmail(UserEntity $user) { 
       $db = db::dbConnect();
       $userEmail = $db->prepare("SELECT email FROM users WHERE email = :email");
 
