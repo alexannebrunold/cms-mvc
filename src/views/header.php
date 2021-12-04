@@ -9,7 +9,7 @@
 </head>
 
 <nav>
-    <a class="nav-link" href="/signup">Sign up</a>
+    <a href="/register">Register</a>
     <a href="/login">Log in</a>
     
     <?php if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] === "true") : ?>
@@ -17,4 +17,4 @@
             <a href="/">User list</a>
          </li>
     <?php endif ?>
-</nav>
+</nav> 
