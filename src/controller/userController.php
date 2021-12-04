@@ -1,8 +1,6 @@
 <?php
-namespace Src\controller;
-
 class UserController {
-    static function addUser() {
+    static function createUser() {
         $user = new UserModel;
         $isEmailExist = $user->verifyEmail($_POST['email']);
 
