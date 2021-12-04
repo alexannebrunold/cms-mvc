@@ -3,7 +3,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/views/header.php";
 ?>
 
 <body>
-  <div style="width: 40%; margin: auto;">
+  <div class="container mt-3" style="width: 40%;">
     <form action="createUser" method="post">
       <div class="mb-3">
         <label class="form-label" for="firstName">First Name</label>
@@ -13,11 +13,6 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/views/header.php";
       <div class="mb-3">
         <label class="form-label" for="lastName">Last Name</label>
         <input class="form-control" id="lastName" type="text" name="lastName" />
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label" for="password">Last Name</label>
-        <input class="form-control" id="password" type="text" name="password" />
       </div>
 
       <div class="mb-3">
