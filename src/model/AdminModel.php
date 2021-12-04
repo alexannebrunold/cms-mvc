@@ -1,13 +1,21 @@
 <?php
 namespace Src;
 
-class AdminModel {
-  // public function test () {
-  //   return 'yo';
-  // }
+use db;
 
-  function deleteUserById (AdminEntity $admin) {
-      $db = data::dbConnect();
+class AdminModel {
+  function getUserById ($userId) {
+      $db = db::dbConnect();
+      $req = $db->prepare("SELECT * FROM users WHERE id = $userId");
+
+      return $req;
+  }
+
+  public function deleteUserById($userId) {
+    $db = db::dbConnect();
+    $req = $db->prepare("DELETE FROM users WHERE id = $userId");
+
+    return $req;
   }
 }
 

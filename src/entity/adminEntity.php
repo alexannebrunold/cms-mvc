@@ -6,7 +6,7 @@ namespace Entity;
 class AdminEntity extends UserEntity {
     private $id;
 
-     public function getUserById() {
+     public function getUserById($userId) {
         return $this->id;
     }
   }

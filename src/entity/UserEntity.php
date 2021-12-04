@@ -76,3 +76,5 @@ class UserEntity
         return $user;
     }
 }
+
+?>
