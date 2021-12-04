@@ -3,22 +3,41 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/views/header.php";
 ?>
 
 <body>
-  <div>
+  <div style="width: 40%; margin: auto;">
     <form action="createUser" method="post">
-      <label>First Name : </label>
-      <input type="text" name="firstName" /><br />
-      <label>Last Name : </label>
-      <input type="text" name="lastName" /><br />
-      <label>Email : </label>
-      <input type="email" name="email" /><br />
-      <label>Admin : </label>
-      <input type="checkbox" name="isAdmin" value="true" /><br />
-      <label>Password : </label>
-      <input type="password" name="password" /><br />
-      <label>Verify Password : </label>
-      <input type="password" name="confirmationPassword" /><br />
-      <br>
-      <input type="submit" value="Envoyer">
+      <div class="mb-3">
+        <label class="form-label" for="firstName">First Name</label>
+        <input class="form-control" id="firstName" type="text" name="firstName" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="lastName">Last Name</label>
+        <input class="form-control" id="lastName" type="text" name="lastName" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="password">Last Name</label>
+        <input class="form-control" id="password" type="text" name="password" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="password">Password</label>
+        <input class="form-control" id="password" type="text" name="password" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="confirmationPassword">Confirm Password</label>
+        <input class="form-control" id="confirmationPassword" type="text" name="confirmationPassword" />
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name="isAdmin">
+        <label class="form-check-label" for="flexCheckChecked">
+          This user is ADMIN
+        </label>
+      </div>
+
+      <button class="mt-3 btn btn-primary" type="submit">Envoyer</button>
     </form>
   </div>
 </body>
