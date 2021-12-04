@@ -14,7 +14,7 @@ switch ($path) {
     // case null:
     // // Renvoie sur page d'accueil
     // $controller = new Src\controller\Home;
-    // $controller->redirectToHomePage($path); 
+    // $controller->redirectToHomePage($path);
     // case '/':
     //   // Renvoie sur page d'accueil
     //   $controller = new Src\controller\Home;
@@ -27,7 +27,7 @@ switch ($path) {
   case '/register':
     require "./views/register.php";
 
-  // case '/createUser':
-  //   UserController::createUser();
-  //   break;
+  case '/createUser':
+    UserController::createUser();
+    break;
 }

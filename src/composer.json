@@ -2,7 +2,7 @@
     "name": "alexanne/src",
     "autoload": {
         "psr-4": {
-            "Src": "./"
+            "Src\\": "./"
         }
     },
     "authors": [
