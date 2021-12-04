@@ -31,7 +31,7 @@ class UserModel {
 
       $emailExist = $userEmail->fetch();
  
-      if (!$emailExist) return true;
+      if ($emailExist) return true;
 
       return false;
   }
