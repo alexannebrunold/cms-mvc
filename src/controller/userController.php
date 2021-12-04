@@ -23,3 +23,5 @@ class UserController
         return $user->insertUser($userData);
     }
 }
+
+?>
