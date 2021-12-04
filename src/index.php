@@ -5,6 +5,7 @@ $path = $_SERVER["REQUEST_URI"];
 
 echo('coucou');
 
+require_once('./controller/userController.php');
 require_once('./controller/home.php');
 require_once('./controller/admin.php');
 
@@ -22,9 +23,10 @@ switch($path) {
   //return admin
   $controller = new Src\controller\Admin;
   $controller->$adminController();
-  // case 'user':
-  //   //return user
-  //   $controller = new \controller\AdminController;
-  // $controller->$userController();
+
+  case 'user':
+    //return user
+    $controller = new \controller\userController;
+    $controller->$userController();
 }
 ?>
