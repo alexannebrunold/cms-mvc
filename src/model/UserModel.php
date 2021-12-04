@@ -1,35 +1,38 @@
 <?php
 
-class UserModel {
-   public function insertUser(UserEntity $user) {
-      $db = db::dbConnect();
-      $cryptedPassword =  password_hash($user->getPassword(), PASSWORD_DEFAULT);
-      $req = $db->prepare("INSERT INTO users(firstName, lastName, email, password, isAdmin) VALUES(:firstName, :lastName,  :email,  :password, :isAdmin)");     
 
-      $req->execute(array(
-         "firstName" => $user->getFirstName(),
-         "lastName" => $user->getLastName(),
-         "email" => $user->getEmail(), 
-         "password" => $cryptedPassword,
-         "isAdmin" => $user->getIsAdmin() 
-      ));
+class UserModel
+{
+   public function insertUser(UserEntity $user)
+   {
+      $db = db::dbConnect();
+      $req = $db->prepare("INSERT INTO users(firstName, lastName, email, password, isAdmin) VALUES(:firstName, :lastName,  :email,  :password, :isAdmin)");
+
+      $req->bindValue(':email', $user->getEmail());
+      $req->bindValue(':password', $user->getPassword());
+      $req->bindValue(':firstName', $user->getFirstName());
+      $req->bindValue(':lastName', $user->getLastName());
+      $req->bindValue(':isAdmin', $user->getIsAdmin());
+
+      return $req->execute();
 
       $_SESSION['email'] = $user->getEmail();
-      $_SESSION['isAdmin'] = $user->getIsAdmin(); 
+      $_SESSION['isAdmin'] = $user->getIsAdmin();
    }
- 
-   public function verifyEmail(UserEntity $user) { 
+
+   public function verifyEmail(string $email)
+   {
       $db = db::dbConnect();
       $userEmail = $db->prepare("SELECT email FROM users WHERE email = :email");
 
       $userEmail->execute([
-          'email' => $user->getEmail(),
+         'email' => $email,
       ]);
 
       $emailExist = $userEmail->fetch();
- 
+
       if ($emailExist) return true;
 
       return false;
-  }
+   }
 }

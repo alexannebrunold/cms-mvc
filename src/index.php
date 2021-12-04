@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once $_SERVER["DOCUMENT_ROOT"] . "/config/bootstrap.php";
 
 require_once('./controller/home.php');
@@ -25,7 +27,7 @@ switch ($path) {
   case '/register':
     require "./views/register.php";
 
-  case '/createUser':
-    UserController::createUser();
-    break;
+  // case '/createUser':
+  //   UserController::createUser();
+  //   break;
 }

@@ -1,7 +1,8 @@
 <?php
 // namespace Entity;
 
-class UserEntity {
+class UserEntity
+{
     private $firstName;
     private $lastName;
     private $email;
@@ -9,52 +10,59 @@ class UserEntity {
     private $isAdmin;
 
 
-    public function getFirstName() {
+    public function getFirstName()
+    {
         return $this->firstName;
     }
 
-    public function setFirstName($firstName) {
+    public function setFirstName($firstName)
+    {
         $this->firstName = $firstName;
         return $this;
     }
 
-    public function getLastName() {
+    public function getLastName()
+    {
         return $this->lastName;
     }
 
-    public function setLastName($lastName) {
-       $this->lastName = $lastName;
-
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
         return $this;
-    } 
+    }
 
-    public function getEmail() {
+    public function getEmail()
+    {
         return $this->email;
     }
 
-    public function setEmail($email) {
+    public function setEmail($email)
+    {
         $this->email = $email;
-
         return $this;
     }
 
-    public function getPassword() {
+    public function getPassword()
+    {
         return $this->password;
     }
- 
-    public function setPassword($password) {
-        $this->password = $password;
 
-        return $this;
+    public function setPassword($password)
+    {
+        if(strlen($password) > 0) {
+        return $this->password = password_hash($password, PASSWORD_DEFAULT);
+        } else return  $this->password = NULL;
     }
 
-    public function getIsAdmin() {
+    public function getIsAdmin()
+    {
         return $this->isAdmin;
     }
 
-    public function setIsAdmin($isAdmin) {
+    public function setIsAdmin($isAdmin)
+    {
         $this->isAdmin = $isAdmin;
-
         return $this;
     }
-}    
+}
