@@ -14,7 +14,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/views/header.php";
       <label>Admin : </label>
       <input type="checkbox" name="isAdmin" value="true" /><br />
       <label>Password : </label>
-      <input type="password" name="passsword" /><br />
+      <input type="password" name="password" /><br />
       <label>Verify Password : </label>
       <input type="password" name="confirmationPassword" /><br />
       <br>
