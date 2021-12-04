@@ -1,32 +1,35 @@
 <?php
+use db;
 
-include ("./entity/UserEntity.php");
+use Entity\UserEntity;
+$user = new UserEntity();
+
 
 class UserModel {
-   public function insertUser(UserEntity $user) {
-      $db = data::dbConnect();
-      $cryptedPassword =  password_hash(getPassword(), PASSWORD_DEFAULT);
+   public function insertUser($user) {
+      $db = db::dbConnect();
+      $cryptedPassword =  password_hash($user->getPassword(), PASSWORD_DEFAULT);
       $req = $db->prepare("INSERT INTO users(firstName, lastName, email, password, isAdmin) VALUES(:firstName, :lastName,  :email,  :password, :isAdmin)");
       
 
       $req->execute(array(
-         "firstName" => getFirstName(),
-         "lastName" => getLastName(),
-         "email" => getEmail(), 
+         "firstName" => $user->getFirstName(),
+         "lastName" => $user->getLastName(),
+         "email" => $user->getEmail(), 
          "password" => $cryptedPassword,
-         "isAdmin" => getIsAdmin() 
+         "isAdmin" => $user->getIsAdmin() 
       ));
 
-      $_SESSION['email'] = getEmail();
-      $_SESSION['isAdmin'] = getIsAdmin(); 
+      $_SESSION['email'] = $user->getEmail();
+      $_SESSION['isAdmin'] = $user->getIsAdmin(); 
    }
-
-   public function verifyEmail() { 
-      $db = data::dbConnect();
+ 
+   public function verifyEmail($user) { 
+      $db = db::dbConnect();
       $userEmail = $db->prepare("SELECT email FROM users WHERE email = :email");
 
       $userEmail->execute([
-          'email' => getEmail(),
+          'email' => $user->getEmail(),
       ]);
 
       $emailExist = $userEmail->fetch();

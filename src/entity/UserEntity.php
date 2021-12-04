@@ -1,8 +1,6 @@
 <?php
 namespace Entity;
 
-use model\UserModel;
-
 class UserEntity {
     private $firstName;
     private $lastName;
@@ -43,9 +41,9 @@ class UserEntity {
     public function getPassword() {
         return $this->password;
     }
-
-    public function setPassword() {
-        $this->passowrd = $password;
+ 
+    public function setPassword($password) {
+        $this->password = $password;
 
         return $this;
     }
@@ -54,7 +52,7 @@ class UserEntity {
         return $this->isAdmin;
     }
 
-    public function setIsAdmin() {
+    public function setIsAdmin($isAdmin) {
         $this->isAdmin = $isAdmin;
 
         return $this;

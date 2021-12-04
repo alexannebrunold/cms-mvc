@@ -1,20 +1,20 @@
 <?php
-//phpinfo();
+session_start();
 
 $path = $_SERVER["REQUEST_URI"];
 
 echo('coucou');
 
-require_once('./controller/userController.php');
 require_once('./controller/home.php');
 require_once('./controller/admin.php');
 
+require($_SERVER["DOCUMENT_ROOT"]."/controller/UserController.php");
 
 switch($path) {
   // case null:
   // // Renvoie sur page d'accueil
   // $controller = new Src\controller\Home;
-  // $controller->redirectToHomePage($path);
+  // $controller->redirectToHomePage($path); 
   // case '/':
   //   // Renvoie sur page d'accueil
   //   $controller = new Src\controller\Home;
@@ -24,9 +24,10 @@ switch($path) {
   $controller = new Src\controller\Admin;
   $controller->$adminController();
 
-  case 'user':
-    //return user
-    $controller = new \controller\userController;
-    $controller->$userController();
+  case '/register':
+    require "./views/register.php";
+
+  case '/createUser': 
+    UserController::createUser();
+    break;
 }
-?>
