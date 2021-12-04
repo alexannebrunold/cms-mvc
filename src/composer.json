@@ -1,0 +1,15 @@
+{
+    "name": "alexanne/src",
+    "autoload": {
+        "psr-4": {
+            "Src": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alexanne Brunold",
+            "email": "alexanne.brunold@hetic.net"
+        }
+    ],
+    "require": {}
+}
