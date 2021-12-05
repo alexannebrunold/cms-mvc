@@ -50,8 +50,8 @@ class UserEntity
 
     public function setPassword($password)
     {
-        if(strlen($password) > 0) {
-        return $this->password = password_hash($password, PASSWORD_DEFAULT);
+        if (strlen($password) > 0) {
+            return $this->password = password_hash($password, PASSWORD_DEFAULT);
         } else return  $this->password = NULL;
     }
 
@@ -62,11 +62,13 @@ class UserEntity
 
     public function setIsAdmin($isAdmin)
     {
-        $this->isAdmin = $isAdmin;
-        return $this;
+        if (strlen($isAdmin) > 0) {
+            return  $this->isAdmin = true;
+        } else return $this->isAdmin = false;
     }
 
-    public function getUser() {
+    public function getUser()
+    {
         $user['firstName'] = $this->firstName;
         $user['lastName'] = $this->lastName;
         $user['email'] = $this->email;
