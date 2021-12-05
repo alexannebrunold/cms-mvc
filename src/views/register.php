@@ -16,13 +16,18 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/views/header.php";
       </div>
 
       <div class="mb-3">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-control" id="email" type="email" name="email" />
+      </div>
+
+      <div class="mb-3">
         <label class="form-label" for="password">Password</label>
-        <input class="form-control" id="password" type="text" name="password" />
+        <input class="form-control" id="password" type="passwword" name="password" />
       </div>
 
       <div class="mb-3">
         <label class="form-label" for="confirmationPassword">Confirm Password</label>
-        <input class="form-control" id="confirmationPassword" type="text" name="confirmationPassword" />
+        <input class="form-control" id="confirmationPassword" type="password" name="confirmationPassword" />
       </div>
 
       <div class="form-check">
