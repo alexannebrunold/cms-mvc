@@ -22,6 +22,13 @@ class UserController
 
         return $user->insertUser($userData);
     }
+
+    function createArticle ($article) {
+
+$user = new UserModel();
+
+return $user->createArticle($article);
+    }
 }
 
 ?>

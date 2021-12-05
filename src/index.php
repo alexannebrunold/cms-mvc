@@ -11,10 +11,10 @@ switch($path) {
   // // Renvoie sur page d'accueil
   // $controller = new Src\controller\Home;
   // $controller->redirectToHomePage($path);
-  // case '/':
-  //   // Renvoie sur page d'accueil
-  //   $controller = new Src\controller\Home;
-  //   $controller->redirectToHomePage($path);
+
+  case '/':
+    require './views/home.php';
+    break;
 
   case '/admin':
   require './views/admin.php';
@@ -24,8 +24,12 @@ switch($path) {
     require './views/register.php';
     break;
 
-  case '/createUser':
-    UserController::createUser();
+  // case '/createUser':
+  //   UserController::createUser();
+  //   break;
+
+  case '/addArticle':
+    require './views/addArticle.php';
     break;
 }
 

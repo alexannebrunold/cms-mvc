@@ -6,5 +6,10 @@ class Home {
     return redirectUrl($path);
   }
 
+  function getAllArticles() {
+
+    $user = new UserModel;
+    return $user->getAllArticles();
+  }
 }
 ?>

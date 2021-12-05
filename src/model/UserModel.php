@@ -35,4 +35,34 @@ class UserModel
 
       return false;
    }
+
+   public function createArticle($article)
+   {
+      $db = db::dbConnect();
+      $req = $db->prepare("INSERT INTO article(image, title, content, author, published_date) VALUES(:image, :title, :content, :author, :published_date)");
+
+      $exec = $req->execute([
+            'image' => $article["image"],
+            'titre' => $article["title"],
+            'contenu' => $article["content"],
+            'auteur' => $article["author"],
+            'published_date' => $article["published_date"]
+        ]);
+
+         return $exec;
+
+      // return $req->execute();
+   }
+
+   public function getAllArticles () {
+
+      $db = db::dbConnect();
+      $query = 'SELECT * FROM articles';
+      $req = $db->prepare($query);
+      $req->execute();
+
+    $result = $req->fetchAll(\PDO::FETCH_BOTH);
+
+    return $result;
+}
 }
