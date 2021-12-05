@@ -27,7 +27,7 @@ switch ($path) {
   case '/register':
     require "./views/register.php";
 
-  // case '/createUser':
-  //   UserController::createUser();
-  //   break;
+  case '/createUser':
+    UserController::createUser();
+    break;
 }
