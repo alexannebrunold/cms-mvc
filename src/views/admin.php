@@ -11,8 +11,8 @@ print_r($users);
 <h1>Coucou</h1>
 
 
-<?php foreach ($users as $key => $value) { ?>
-    <li><?php echo $key." has the value". $value;
+<?php foreach ($users as $user) { ?>
+    <li><?php print_r($user['id']);
  ?></li>
 <?php }
 ?>
