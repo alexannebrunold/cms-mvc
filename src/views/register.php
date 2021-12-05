@@ -22,7 +22,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/views/header.php";
 
       <div class="mb-3">
         <label class="form-label" for="password">Password</label>
-        <input class="form-control" id="password" type="passwword" name="password" />
+        <input class="form-control" id="password" type="password" name="password" />
       </div>
 
       <div class="mb-3">
