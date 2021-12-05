@@ -10,7 +10,7 @@ $articles = $controller->getAllArticles();
 
 <?php foreach ($articles as $article) { ?>
     <h1><?php print_r($article['title']); ?></h1>
-   <p><?php print_r($article['image']); ?></p>
+   <img src="<?php print_r($article['image']); ?>" />
     <p><?php print_r($article['content']); ?></p>
 
 </button>

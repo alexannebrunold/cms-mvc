@@ -15,13 +15,13 @@
       <a class="nav-link" href="/">Acceuil</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/register">Register</a>
+      <a class="nav-link" href="/register">Créer un utilisateur</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/login">Log in</a>
+      <a class="nav-link" href="/login">Connexions</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/addArticle">Log in</a>
+      <a class="nav-link" href="/addArticle">Ajouter un article</a>
     </li>
   </ul>
 

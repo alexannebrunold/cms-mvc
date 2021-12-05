@@ -42,7 +42,6 @@ class UserModel
       $db = db::dbConnect();
 
       $columns = implode(", ",array_keys($article));
-      // $values = implode(", ", array_values($article));
 
       $user_id = $article['user_id'];
       $content = $article['content'];
