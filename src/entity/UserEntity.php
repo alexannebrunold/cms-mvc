@@ -6,6 +6,8 @@ class UserEntity
     private $email;
     private $password;
     private $isAdmin;
+    private $title;
+    private $content;
 
 
     public function getFirstName()
@@ -13,11 +15,27 @@ class UserEntity
         return $this->firstName;
     }
 
+
     public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
         return $this;
     }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+        return $this;
+    }
+
+
+    public function setContent($content)
+    {
+        $this->content = $content;
+        return $this;
+    }
+
+
 
     public function getLastName()
     {

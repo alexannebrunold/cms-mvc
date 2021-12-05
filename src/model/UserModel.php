@@ -38,20 +38,23 @@ class UserModel
 
    public function createArticle($article)
    {
+
       $db = db::dbConnect();
-      $req = $db->prepare("INSERT INTO article(image, title, content, author, published_date) VALUES(:image, :title, :content, :author, :published_date)");
 
-      $exec = $req->execute([
-            'image' => $article["image"],
-            'titre' => $article["title"],
-            'contenu' => $article["content"],
-            'auteur' => $article["author"],
-            'published_date' => $article["published_date"]
-        ]);
+      $columns = implode(", ",array_keys($article));
+      // $values = implode(", ", array_values($article));
 
-         return $exec;
+      $user_id = $article['user_id'];
+      $content = $article['content'];
+      $image = $article['image'];
+      $title = $article['title'];
+      $id = $article['id'];
+      $published_date = $article['published_date'];
 
-      // return $req->execute();
+      $req = $db->prepare("INSERT INTO articles($columns) VALUES('$id', '$image', '$title', '$content', '$published_date', '$user_id')");
+      $exec = $req->execute();
+      return $exec;
+
    }
 
    public function getAllArticles () {
