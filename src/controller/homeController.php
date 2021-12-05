@@ -1,8 +1,4 @@
 <?php
-namespace Src\controller;
-
-require_once('./utils/redirectUrl.php');
-
 class Home {
 
   function redirectToHomePage($path) {

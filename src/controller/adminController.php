@@ -1,11 +1,4 @@
 <?php
-namespace Src;
-
-use controller\UserController;
-use Model\AdminModel;
-
-require_once('./controller/userController.php');
-require_once('./model/AdminModel.php');
 
 class Admin extends UserController {
   // supprimer un user

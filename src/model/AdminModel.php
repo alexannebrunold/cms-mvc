@@ -1,6 +1,4 @@
 <?php
-namespace Model;
-use db;
 
 class AdminModel {
 public function getAllUsers () {
@@ -15,14 +13,14 @@ public function getAllUsers () {
 
   public function getUserById ($userId) {
       $db = db::dbConnect();
-      $req = $db->prepare('SELECT * FROM users WHERE id = $userId');
+      $req = $db->prepare(`SELECT * FROM users WHERE id = $userId`);
 
       return $req;
   }
 
   public function deleteUserById($userId) {
     $db = db::dbConnect();
-    $req = $db->prepare('DELETE FROM users WHERE id = $userId');
+    $req = $db->prepare(`DELETE FROM users WHERE id = $userId`);
 
     return $req;
   }
