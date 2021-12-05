@@ -2,13 +2,15 @@
 
 class AdminModel {
 public function getAllUsers () {
-  echo('c');
-      // $dbConnection = new db();
-      // $test = $dbConnection->dbConnect();
-      // echo($test);
-      // $req = $test->prepare('SELECT * FROM users');
 
-      // return $req;
+      $db = db::dbConnect();
+      $query = 'SELECT * FROM users';
+      $req = $db->prepare($query);
+      $req->execute();
+
+    $result = $req->fetchAll(\PDO::FETCH_BOTH);
+
+    return $result;
 }
 
   public function getUserById ($userId) {

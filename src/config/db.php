@@ -5,10 +5,10 @@ class db {
     static $pwd = 'example';
     static $db = 'cms_mvc_db';
 
-    static function dbConnect() : PDO 
+    static function dbConnect() : PDO
     {
         $pdo = new PDO(self::$dsn, self::$user, self::$pwd);
         return $pdo;
-    } 
-        
+    }
+
 }
