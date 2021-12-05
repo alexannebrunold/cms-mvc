@@ -31,7 +31,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/views/header.php";
       </div>
 
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name="isAdmin">
+        <input class="form-check-input" type="checkbox" value="true" id="flexCheckChecked" name="isAdmin">
         <label class="form-check-label" for="flexCheckChecked">
           This user is ADMIN
         </label>
