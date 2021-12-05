@@ -65,4 +65,14 @@ class UserEntity
         $this->isAdmin = $isAdmin;
         return $this;
     }
+
+    public function getUser() {
+        $user['firstName'] = $this->firstName;
+        $user['lastName'] = $this->lastName;
+        $user['email'] = $this->email;
+        $user['isAdmin'] = $this->isAdmin;
+        $user['password'] = $this->password;
+
+        return $user;
+    }
 }
