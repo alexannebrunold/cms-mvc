@@ -9,18 +9,24 @@ class UserController
         $user = new UserModel();
         // $isEmailExist = $user->verifyEmail($_POST['email']);
 
-        $userData = new UserEntity();
-        $userData->setEmail($_POST['email']);
-        $userData->setFirstName($_POST['firstName']);
-        $userData->setLastName($_POST['lastName']);
-        $userData->setPassword($_POST['password']);
-        $userData->setIsAdmin($_POST['isAdmin']);
+        $userData = array (
+        'id' => '0o19505c-55e0-11ec-8b10-0242ac140002',
+        'type' => $_POST['flexCheckChecked'],
+        'article_id' => '0o19505c-55e0-11em-8b10-0242ac140002',
+        'first_name' => $_POST['firstName'],
+        'last_name' => $_POST['lastName'],
+        'password' => $_POST['password'],
+        'email' => $_POST['email'],
+    );
 
-        // TODO: delete me
-        var_dump($userData);
+    var_dump($userData);
 
+// if($isEmailExist) {
+//     print 'email already exist in db';
+// }else {
 
-        return $user->insertUser($userData);
+    return $user->insertUser($userData);
+// }
     }
 
     static function createArticle () {

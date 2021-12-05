@@ -18,11 +18,19 @@
       <a class="nav-link" href="/register">Créer un utilisateur</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/login">Connexions</a>
+      <a class="nav-link" href="/login">Connexion</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="/addArticle">Ajouter un article</a>
     </li>
+
+    <!-- if($_SESSION['isAdmin'] === false) { ?> -->
+    <li class="nav-item">
+      <a class="nav-link" href="/admin">Admin</a>
+    </li>
+
+    <!-- } ?> -->
+
   </ul>
 
 

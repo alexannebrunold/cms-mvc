@@ -1,23 +1,30 @@
 <?php
 
-
 class UserModel
 {
-   public function insertUser(UserEntity $user)
+   public function insertUser($user)
    {
+      // $userEntity = new UserEntity;
+
       $db = db::dbConnect();
-      $req = $db->prepare("INSERT INTO users(firstName, lastName, email, password, isAdmin) VALUES(:firstName, :lastName,  :email,  :password, :isAdmin)");
 
-      $req->bindValue(':email', $user->getEmail());
-      $req->bindValue(':password', $user->getPassword());
-      $req->bindValue(':firstName', $user->getFirstName());
-      $req->bindValue(':lastName', $user->getLastName());
-      $req->bindValue(':isAdmin', $user->getIsAdmin());
+      $columns = implode(", ",array_keys($user));
 
-      return $req->execute();
+      var_dump($columns);
 
-      $_SESSION['email'] = $user->getEmail();
-      $_SESSION['isAdmin'] = $user->getIsAdmin();
+      $article_id = $user['article_id'];
+      $first_name = $user['first_name'];
+      $email = $user['email'];
+      $type = $user['type'];
+      $id = $user['id'];
+      $last_name = $user['last_name'];
+
+      $req = $db->prepare("INSERT INTO users ($columns) VALUES('$id', '$type', '$article_id', '$first_name', '$last_name', '$email')");
+      $exec = $req->execute();
+      return $exec;
+
+      // $_SESSION['email'] = $userEntity->getEmail();
+      // $_SESSION['isAdmin'] = $userEntity->getIsAdmin();
    }
 
    public function verifyEmail(string $email)
