@@ -8,13 +8,15 @@ class UserModel
       $db = db::dbConnect();
       $req = $db->prepare("INSERT INTO users(firstName, lastName, email, password, isAdmin) VALUES(:firstName, :lastName,  :email,  :password, :isAdmin)");
 
-      $req->bindValue(':email', $user->getEmail());
-      $req->bindValue(':password', $user->getPassword());
-      $req->bindValue(':firstName', $user->getFirstName());
-      $req->bindValue(':lastName', $user->getLastName());
-      $req->bindValue(':isAdmin', $user->getIsAdmin());
+      $exec = $req->execute(array(
+         ':email' => $user->getEmail(),
+         ':password' => $user->getPassword(),
+         ':firstName' => $user->getFirstName(),
+         ':lastName' => $user->getLastName(),
+         ':isAdmin' => $user->getIsAdmin()
+      ));
 
-      return $req->execute();
+      return $exec;
 
       $_SESSION['email'] = $user->getEmail();
       $_SESSION['isAdmin'] = $user->getIsAdmin();
