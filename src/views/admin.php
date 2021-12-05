@@ -5,18 +5,21 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/views/header.php";
 
 $controller = new Admin;
 $users = $controller->getAllUsers();
+// if($_SESSION['isAdmin'] === true) {
 ?>
 
 
-<h1>Coucou //deleteUserById($user['id'])</h1>
+<h1>Admin</h1>
 
 
 <?php foreach ($users as $user) { ?>
-    <button
+    <li
     onclick="<?php $controller->deleteUserById($user['id']); ?>"
     >
  <?php print_r($user['id']); ?>
-</button>
+</li>
 
 
-<?php }; ?>
+<?php };
+// }
+?>
