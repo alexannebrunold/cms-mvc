@@ -14,17 +14,20 @@ public function getAllUsers () {
 }
 
   public function getUserById ($userId) {
+
       $db = db::dbConnect();
       $req = $db->prepare(`SELECT * FROM users WHERE id = $userId`);
-
-      return $req;
+      $req->execute();
+      $result = $req->fetch(\PDO::FETCH_BOTH);
+      return print_r($result);
   }
 
-  public function deleteUserById($userId) {
-    $db = db::dbConnect();
-    $req = $db->prepare(`DELETE FROM users WHERE id = $userId`);
-
-    return $req;
+ function deleteUserById($userId) {
+var_dump($userId);
+//     $db = db::dbConnect();
+//     $req = $db->prepare(`DELETE FROM users WHERE id = $userId`);
+// $req->execute();
+//     return $req;
   }
 }
 

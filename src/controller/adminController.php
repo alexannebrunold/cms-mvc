@@ -6,12 +6,13 @@ class Admin extends UserController {
     return $admin->getAllUsers();
   }
 
-   function deleteUserById($id) {
-    $admin = new AdminModel;
+   function deleteUserById($userId) {
+    var_dump($userId);
+    // $admin = new AdminModel;
 
-    $userId = $admin->getUserById($id);
+    // // $userIdd = $admin->getUserById($userId);
 
-    $isUserDeleted = $admin->deleteUserById($userId);
+    // return $admin->deleteUserById($userId);
 
   }
 
