@@ -8,8 +8,8 @@ class Autoloader{
     static function autoload($class){
         if(strpos($class, "Model") !== false){
             require 'model/' . $class . '.php';
-        } else{
-            require 'controller/' . $class . '.php';
+        } else {
+            require 'controller/' . strtolower($class) . 'Controller' . '.php';
         }
     }
 
